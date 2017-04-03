@@ -18,10 +18,3 @@ output="["$(curl https://swapi.co/api/$s_type/?search=$s_keyword)
 output=$output$warn"]"
 
 echo $output
-
-
-
-
-
-
-

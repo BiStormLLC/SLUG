@@ -44,9 +44,4 @@ echo "xdebug.trace_format=0" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.
 ln -sf /dev/stdout /var/log/slug/error.log && 
 ln -sf /dev/stdout /var/log/slug/trace.xt
 
-# USED TO INITIATE PHP FROM THIS SCRIPT
-set -e
-if [ "${1#-}" != "$1" ]; then
-    set -- php-fpm "$@"
-fi
-exec "$@"
+php-fpm

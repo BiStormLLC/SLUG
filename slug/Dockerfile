@@ -6,6 +6,7 @@ ENV SLUG_CONFIG="/slug/slug.json"
 ENV SLUG_EXEC_ROOT="/slug"
 
 COPY storm /usr/local/bin
+RUN chmod +x /usr/local/bin/storm
 
 RUN mkdir -p /slug /var/log/slug && \
     touch /var/log/slug/trace.xt /var/log/slug/error.log && \
@@ -60,7 +61,6 @@ COPY ./sample/slug.json /slug
 COPY ./sample/* /slug/
 
 ENTRYPOINT ["storm"]
-CMD ["php-fpm"]
 
 WORKDIR /var/www/html
 
