@@ -91,7 +91,6 @@ class Slug {
             $this->slugfile = getenv("SLUG_CONFIG");
         }
         $conf = file_get_contents($this->slugfile, FILE_USE_INCLUDE_PATH);
-
         $obj_conf = json_decode($conf);
         try{
            $this->{$namespace} = $obj_conf->{$namespace};
@@ -275,7 +274,10 @@ class Slug {
 
         $script = $this->slug_app_exec_dir . "/" . $this->action->file;
         
-        $exec_resp = shell_exec( $exec_type . ' ' . $script . ' ' .  $args_str );
+        $exec_resp = shell_exec( $exec_type . ' ' . $script . ' ' . $args_str );
+        
+        var_dump($args_str);
+        exit;
 
         # If we receive a json format back from the script, we can include this within the msg body as more json
         try {
