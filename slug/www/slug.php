@@ -275,9 +275,6 @@ class Slug {
         $script = $this->slug_app_exec_dir . "/" . $this->action->file;
         
         $exec_resp = shell_exec( $exec_type . ' ' . $script . ' ' . $args_str );
-        
-        var_dump($args_str);
-        exit;
 
         # If we receive a json format back from the script, we can include this within the msg body as more json
         try {
